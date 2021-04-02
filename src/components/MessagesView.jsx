@@ -1,7 +1,18 @@
 import React, { Component } from 'react'
 import './MessagesView.css';
 
+// The view which contains the chats container and the chat header
 export default class MessagesView extends Component {
+    constructor(props) {
+        super(props);
+        this.state = { messages: '' };
+    }
+
+    componentDidMount() {
+        let arr = ['Hey', 'Hi'];
+        this.setState({ messages: arr });
+    }
+
     render() {
         if (this.props.selected === '') {
             return (
@@ -13,7 +24,14 @@ export default class MessagesView extends Component {
 
         return (
             <div className='messagesView'>
-                <h1>{this.props.selected}</h1>
+                <div className='chatHeader'>
+                    <h1>{this.props.selected}</h1>
+                </div>
+                <div className='chatsContainer'>
+                    {this.state.messages.map((value, index) => {
+                        return <h1>{value}</h1>
+                    })}
+                </div>
             </div>
         )
     }
