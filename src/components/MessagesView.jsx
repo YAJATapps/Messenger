@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import ChatMessage from './ChatMessage';
 import './MessagesView.css';
 
 // The view which contains the chats container and the chat header
@@ -9,7 +10,21 @@ export default class MessagesView extends Component {
     }
 
     componentDidMount() {
-        let arr = ['Hey', 'Hi'];
+        let arr = [
+            {
+                msg: 'Hey',
+                sent: false
+            },
+            {
+                msg: 'Hi',
+                sent: true
+            },
+            {
+                msg: 'Hello',
+                sent: false
+            }
+        ];
+
         this.setState({ messages: arr });
     }
 
@@ -29,7 +44,7 @@ export default class MessagesView extends Component {
                 </div>
                 <div className='chatsContainer'>
                     {this.state.messages.map((value, index) => {
-                        return <h1>{value}</h1>
+                        return <ChatMessage key={index} message={value.msg} sent={value.sent} />
                     })}
                 </div>
             </div>
