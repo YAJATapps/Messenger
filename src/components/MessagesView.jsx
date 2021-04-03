@@ -1,34 +1,11 @@
 import React, { Component } from 'react'
+import ChatContainer from './ChatContainer';
+import ChatHeader from './ChatHeader';
 import ChatInput from './ChatInput';
-import ChatMessage from './ChatMessage';
 import './MessagesView.css';
 
 // The view which contains the chats container and the chat header
 export default class MessagesView extends Component {
-    constructor(props) {
-        super(props);
-        this.state = { messages: '' };
-    }
-
-    componentDidMount() {
-        let arr = [
-            {
-                msg: 'Hey',
-                sent: false
-            },
-            {
-                msg: 'Hi',
-                sent: true
-            },
-            {
-                msg: 'Hello',
-                sent: false
-            }
-        ];
-
-        this.setState({ messages: arr });
-    }
-
     render() {
         if (this.props.selected === '') {
             return (
@@ -40,14 +17,10 @@ export default class MessagesView extends Component {
 
         return (
             <div className='messagesView'>
-                <div className='chatHeader'>
-                    <h1>{this.props.selected}</h1>
-                </div>
-                <div className='chatsContainer'>
-                    {this.state.messages.map((value, index) => {
-                        return <ChatMessage key={index} message={value.msg} sent={value.sent} />
-                    })}
-                </div>
+                <ChatHeader selected={this.props.selected} />
+
+                <ChatContainer />
+
                 <ChatInput />
             </div>
         )

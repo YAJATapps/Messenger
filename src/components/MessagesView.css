@@ -11,17 +11,3 @@
     position: absolute;
     top: 45%;
 }
-
-.chatHeader {
-    width: 100%;
-    flex: 0 1 auto;
-    border-bottom: 2px solid grey;
-    padding-left: 12px;
-}
-
-.chatsContainer {
-    width: 100%;
-    flex: 1 1 auto;
-    padding: 12px;
-    overflow-y: scroll;
-}

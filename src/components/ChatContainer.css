@@ -1,0 +1,6 @@
+.chatsContainer {
+    width: 100%;
+    flex: 1 1 auto;
+    padding: 12px;
+    overflow-y: scroll;
+}

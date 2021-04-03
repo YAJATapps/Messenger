@@ -1,0 +1,6 @@
+.chatHeader {
+    width: 100%;
+    flex: 0 1 auto;
+    border-bottom: 2px solid grey;
+    padding-left: 12px;
+}
