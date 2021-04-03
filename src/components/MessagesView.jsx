@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
+import ChatInput from './ChatInput';
 import ChatMessage from './ChatMessage';
 import './MessagesView.css';
-import logo from './../send.svg';
 
 // The view which contains the chats container and the chat header
 export default class MessagesView extends Component {
@@ -48,10 +48,7 @@ export default class MessagesView extends Component {
                         return <ChatMessage key={index} message={value.msg} sent={value.sent} />
                     })}
                 </div>
-                <div className='chatInput'>
-                    <input type='text' id='chatIn' name='chatIn' placeholder='Write a message' />
-                    <img src={logo} alt='Send message' width='24px' height='24px' />
-                </div>
+                <ChatInput />
             </div>
         )
     }

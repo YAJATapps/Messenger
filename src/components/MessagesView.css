@@ -23,31 +23,5 @@
     width: 100%;
     flex: 1 1 auto;
     padding: 12px;
-}
-
-.chatInput {
-    width: 100%;
-    flex: 0 1 auto;
-    border-top: 2px solid grey;
-    padding: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.chatInput img {
-    margin: 8px;
-}
-
-.chatInput input {
-    border: 2px solid #cccccc;
-    border-radius: 6px;
-    width: 100%;
-    padding: 14px 22px 14px 22px;
-    margin: 8px 0;
-}
-
-.chatInput input:focus {
-    border: 2px solid #61dafb;
-    outline: none;
+    overflow-y: scroll;
 }
