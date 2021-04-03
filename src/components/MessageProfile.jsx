@@ -6,7 +6,7 @@ export default class MessageProfile extends Component {
 
     render() {
         return (
-            <div className='messageProfile' onClick={() => this.props.selectId(this.props.id)}>
+            <div className='messageProfile' onClick={() => this.props.clickAt([this.props.id, this.props.name])}>
                 <h1>{this.props.name}</h1>
             </div>
         )

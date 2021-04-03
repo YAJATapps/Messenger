@@ -4,7 +4,7 @@ import ChatHeader from './ChatHeader';
 import ChatInput from './ChatInput';
 import './MessagesView.css';
 
-// The view which contains the chats container and the chat header
+// The view which contains the chats header, chats container and the chat input
 export default class MessagesView extends Component {
     render() {
         if (this.props.selected === '') {

@@ -7,20 +7,20 @@ import MessagesView from './MessagesView';
 export default class ContentBox extends Component {
     constructor(props) {
         super(props);
-        this.selectId = this.selectId.bind(this);
-        this.state = { selectedMessage: '' };
+        this.selectProfile = this.selectProfile.bind(this);
+        this.state = { selectedId: '', selectedName: '' };
     }
 
     render() {
         return (
             <div className='contentBox'>
-                <MessageMenu selectId={this.selectId} />
-                <MessagesView selected={this.state.selectedMessage} />
+                <MessageMenu clickAt={this.selectProfile} />
+                <MessagesView selected={this.state.selectedName} />
             </div>
         )
     }
 
-    selectId(e) {
-        this.setState({ selectedMessage: e });
+    selectProfile(e) {
+        this.setState({ selectedId: e[0], selectedName: e[1] });
     }
 }
