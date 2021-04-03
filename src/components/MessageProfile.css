@@ -5,4 +5,7 @@
 
 .messageProfile h1 {
     text-align: center;
+    line-height: 80px;
+    margin: auto;
+    vertical-align: middle;
 }
