@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './MessageMenu.css';
 import MessageProfile from './MessageProfile';
 
+// The list of persons to message
 export default class MessageMenu extends Component {
 
     render() {

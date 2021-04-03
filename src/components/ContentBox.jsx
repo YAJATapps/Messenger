@@ -3,6 +3,7 @@ import './ContentBox.css';
 import MessageMenu from './MessageMenu';
 import MessagesView from './MessagesView';
 
+// The box that contains the message menu which is a list of persons and the message views that shows messages
 export default class ContentBox extends Component {
     constructor(props) {
         super(props);

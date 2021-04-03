@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import logo from './../logo.svg';
 import './Header.css';
 
+// The header with icon and text
 export default class Header extends Component {
     render() {
         return (
