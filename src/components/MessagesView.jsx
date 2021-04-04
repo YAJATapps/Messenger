@@ -7,7 +7,7 @@ import './MessagesView.css';
 // The view which contains the chats header, chats container and the chat input
 export default class MessagesView extends Component {
     render() {
-        if (this.props.selected === '') {
+        if (this.props.selectedId === '') {
             return (
                 <div className='messagesView'>
                     <h1 className='centreError'>No message profile selected. Select from the messsages view or send someone a new message.</h1>
@@ -17,9 +17,9 @@ export default class MessagesView extends Component {
 
         return (
             <div className='messagesView'>
-                <ChatHeader selected={this.props.selected} />
+                <ChatHeader selectedName={this.props.selectedName} />
 
-                <ChatContainer />
+                <ChatContainer selectedId={this.props.selectedId} />
 
                 <ChatInput />
             </div>

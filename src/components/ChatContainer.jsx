@@ -10,7 +10,7 @@ export default class ChatContainer extends Component {
     }
 
     componentDidMount() {
-        let url = 'http://127.0.0.1:5000/api/v1/messenger/chats/all';
+        let url = 'http://127.0.0.1:5000/api/v1/messenger/chats?id=' + this.props.selectedId;
         fetch(url).then(res => res.json()).then((result) => {
             this.setState({
                 messages: result
