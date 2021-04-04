@@ -10,22 +10,12 @@ export default class ChatContainer extends Component {
     }
 
     componentDidMount() {
-        let arr = [
-            {
-                msg: 'Hey',
-                sent: false
-            },
-            {
-                msg: 'Hi',
-                sent: true
-            },
-            {
-                msg: 'Hello',
-                sent: false
-            }
-        ];
-
-        this.setState({ messages: arr });
+        let url = 'http://127.0.0.1:5000/api/v1/messenger/chats/all';
+        fetch(url).then(res => res.json()).then((result) => {
+            this.setState({
+                messages: result
+            });
+        });
     }
 
     render() {
