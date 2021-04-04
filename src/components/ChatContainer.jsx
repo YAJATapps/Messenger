@@ -10,12 +10,13 @@ export default class ChatContainer extends Component {
     }
 
     componentDidMount() {
-        let url = 'http://127.0.0.1:5000/api/v1/messenger/chats?id=' + this.props.selectedId;
-        fetch(url).then(res => res.json()).then((result) => {
-            this.setState({
-                messages: result
-            });
-        });
+        this.loadMessages();
+    }
+
+    componentDidUpdate(prevProps) {
+        if (this.props.selectedId !== prevProps.selectedId) {
+            this.loadMessages();
+        }
     }
 
     render() {
@@ -26,5 +27,14 @@ export default class ChatContainer extends Component {
                 })}
             </div>
         )
+    }
+
+    loadMessages() {
+        let url = 'http://127.0.0.1:5000/api/v1/messenger/chats?id=' + this.props.selectedId;
+        fetch(url).then(res => res.json()).then((result) => {
+            this.setState({
+                messages: result
+            });
+        });
     }
 }
