@@ -1,4 +1,5 @@
 .messageMenu {
     width: 20vw;
     height: 100%;
+    overflow-y: scroll;
 }
