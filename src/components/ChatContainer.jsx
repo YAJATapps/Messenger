@@ -31,10 +31,21 @@ export default class ChatContainer extends Component {
 
     loadMessages() {
         let url = 'http://127.0.0.1:5000/api/v1/messenger/chats?id=' + this.props.selectedId;
-        fetch(url).then(res => res.json()).then((result) => {
-            this.setState({
-                messages: result
-            });
-        });
+        fetch(url)
+            .then(res => this.checkError(res))
+            .then(res => res.json())
+            .then((result) => {
+                this.setState({
+                    messages: result
+                });
+            })
+            .catch(error => console.log(error));
+    }
+
+    checkError(response) {
+        if (!response.ok) {
+            throw Error(response.statusText);
+        }
+        return response;
     }
 }
