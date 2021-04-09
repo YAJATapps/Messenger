@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './MessageMenu.css';
+import './../css/MessageMenu.css';
 import MessageProfile from './MessageProfile';
 
 // The list of persons to message

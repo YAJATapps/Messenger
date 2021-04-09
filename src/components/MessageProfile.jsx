@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './MessageProfile.css';
+import './../css/MessageProfile.css';
 
 // The person to be messaged. Contains title and changes the view on message view on clicking
 export default class MessageProfile extends Component {

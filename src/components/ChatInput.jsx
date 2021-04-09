@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import './ChatInput.css';
-import logo from './../send.svg';
+import './../css/ChatInput.css';
+import logo from './../img/send.svg';
 
 export default class ChatInput extends Component {
     render() {

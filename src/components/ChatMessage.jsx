@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './ChatMessage.css';
+import './../css/ChatMessage.css';
 
 // This represents a message
 export default class ChatMessage extends Component {

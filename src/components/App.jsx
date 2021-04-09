@@ -1,5 +1,5 @@
-import ContentBox from './components/ContentBox';
-import Header from './components/Header';
+import ContentBox from './ContentBox';
+import Header from './Header';
 
 // The website fragment with header and content
 function App() {

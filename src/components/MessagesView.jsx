@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import ChatContainer from './ChatContainer';
 import ChatHeader from './ChatHeader';
 import ChatInput from './ChatInput';
-import './MessagesView.css';
+import './../css/MessagesView.css';
 
 // The view which contains the chats header, chats container and the chat input
 export default class MessagesView extends Component {

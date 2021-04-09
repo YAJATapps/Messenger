@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './ContentBox.css';
+import './../css/ContentBox.css';
 import MessageMenu from './MessageMenu';
 import MessagesView from './MessagesView';
 
