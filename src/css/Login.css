@@ -1,0 +1,55 @@
+.left-container {
+    width: 40vw;
+    height: 90vh;
+    position: absolute;
+}
+
+.right-container {
+    width: 60vw;
+    height: 90vh;
+    position: absolute;
+    left: 40vw;
+}
+
+.left-content {
+    padding-top: 40vh;
+}
+
+.right-content {
+    width: 340px;
+    background-color: white;
+    border-radius: 25px;
+    border: 2px solid gray;
+    padding: 24px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20vh;
+}
+
+.button-blue {
+    width: 100%;
+    background-color: #1fc6f5;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    padding: 14px 24px 14px 24px;
+    font-size: 18px;
+}
+
+input {
+    border: 2px solid #cccccc;
+    border-radius: 8px;
+    width: 100%;
+    padding: 16px 24px 16px 24px;
+    margin: 8px 0;
+}
+
+input:focus {
+    border: 2px solid #1fc6f5;
+    outline: none;
+}
+
+h2,
+h5 {
+    text-align: center;
+}
