@@ -30,7 +30,7 @@ export default class ChatContainer extends Component {
     }
 
     loadMessages() {
-        let url = 'http://127.0.0.1:5000/api/v1/messenger/chats?id=' + this.props.selectedId;
+        let url = process.env.REACT_APP_API_URL + '/api/v1/messages/' + this.props.selectedId;
         fetch(url)
             .then(res => this.checkError(res))
             .then(res => res.json())
