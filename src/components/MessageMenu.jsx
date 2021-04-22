@@ -27,8 +27,8 @@ export default class MessageMenu extends Component {
 
     // Fetch the profiles from API and load it into profiles state
     loadProfiles() {
-        let url = 'http://127.0.0.1:5000/api/v1/messenger/profiles';
-        fetch(url)
+        let url = process.env.REACT_APP_API_URL + '/api/v1/users/find?user=s';
+        fetch(url, {  method: 'POST' })
             .then(res => this.checkError(res))
             .then(res => res.json())
             .then((result) => {
