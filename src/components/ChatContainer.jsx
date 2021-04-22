@@ -31,7 +31,7 @@ export default class ChatContainer extends Component {
 
     loadMessages() {
         let url = process.env.REACT_APP_API_URL + '/api/v1/messages/' + this.props.selectedId;
-        fetch(url)
+        fetch(url, { method: 'POST' })
             .then(res => this.checkError(res))
             .then(res => res.json())
             .then((result) => {
