@@ -6,6 +6,17 @@ import './../css/MessagesView.css';
 
 // The view which contains the chats header, chats container and the chat input
 export default class MessagesView extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            // Used for updating messages
+            counter: 0
+        };
+
+        this.incrementCounter = this.incrementCounter.bind(this);
+    }
+
     render() {
         if (this.props.selectedId === '') {
             return (
@@ -19,10 +30,16 @@ export default class MessagesView extends Component {
             <div className='messagesView'>
                 <ChatHeader selectedName={this.props.selectedName} />
 
-                <ChatContainer selectedId={this.props.selectedId} />
+                <ChatContainer uid={this.props.uid} selectedId={this.props.selectedId} counter={this.state.counter} />
 
-                <ChatInput />
+                <ChatInput uid={this.props.uid} tid={this.props.selectedId} incrementCounter={this.incrementCounter} />
             </div>
         )
+    }
+
+    incrementCounter() {
+        this.setState({
+            counter: this.state.counter + 1
+        });
     }
 }

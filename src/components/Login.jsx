@@ -47,7 +47,7 @@ export default class Login extends Component {
             .then(res => res.json())
             .then((result) => {
                 if (result)
-                    this.props.flipLogin();
+                    this.props.flipLogin(user);
                 else
                     alert('Wrong username or password!');
             })

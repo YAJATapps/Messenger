@@ -15,6 +15,12 @@ export default class MessageMenu extends Component {
         this.loadProfiles();
     }
 
+    componentDidUpdate(prevProps) {
+        if (this.props.uid !== prevProps.uid) {
+            this.loadProfiles();
+        }
+    }
+
     render() {
         return (
             <div className='messageMenu'>
@@ -27,11 +33,13 @@ export default class MessageMenu extends Component {
 
     // Fetch the profiles from API and load it into profiles state
     loadProfiles() {
-        let url = process.env.REACT_APP_API_URL + '/api/v1/users/find?user=s';
-        fetch(url, {  method: 'POST' })
+        let url = process.env.REACT_APP_API_URL + '/api/v1/users/contacts?user=' + this.props.uid;
+        fetch(url, { method: 'POST' })
             .then(res => this.checkError(res))
             .then(res => res.json())
             .then((result) => {
+                console.log(result)
+
                 this.setState({
                     profiles: result
                 });

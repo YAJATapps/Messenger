@@ -14,7 +14,7 @@ export default class ChatContainer extends Component {
     }
 
     componentDidUpdate(prevProps) {
-        if (this.props.selectedId !== prevProps.selectedId) {
+        if (this.props.selectedId !== prevProps.selectedId || this.props.counter !== prevProps.counter || this.props.uid !== prevProps.uid) {
             this.loadMessages();
         }
     }
@@ -30,7 +30,7 @@ export default class ChatContainer extends Component {
     }
 
     loadMessages() {
-        let url = process.env.REACT_APP_API_URL + '/api/v1/messages/' + this.props.selectedId;
+        let url = process.env.REACT_APP_API_URL + '/api/v1/messages/list?frm=' + this.props.uid + '&to=' + this.props.selectedId;
         fetch(url, { method: 'POST' })
             .then(res => this.checkError(res))
             .then(res => res.json())

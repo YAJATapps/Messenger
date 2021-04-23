@@ -14,8 +14,8 @@ export default class ContentBox extends Component {
     render() {
         return (
             <div className='contentBox'>
-                <MessageMenu clickAt={this.selectProfile} />
-                <MessagesView selectedId={this.state.selectedId} selectedName={this.state.selectedName} />
+                <MessageMenu clickAt={this.selectProfile} uid={this.props.uid} />
+                <MessagesView selectedId={this.state.selectedId} selectedName={this.state.selectedName} uid={this.props.uid} />
             </div>
         )
     }
