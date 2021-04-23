@@ -15,10 +15,26 @@ export default class ChatInput extends Component {
     }
 
     render() {
+        const handleEnter = e => {
+            // Send message when enter key is pressed
+            if (e.key === 'Enter') {
+                this.sendMessage();
+            }
+        };
         return (
             <div className='chatInput'>
-                <input name='chatIn' type='text' placeholder='Write a message' value={this.state.message} onChange={this.handleMsgChange} />
-                <img src={logo} alt='Send message' width='24px' height='24px' onClick={this.sendMessage} />
+                <input name='chatIn'
+                    type='text'
+                    placeholder='Write a message'
+                    value={this.state.message}
+                    onChange={this.handleMsgChange}
+                    onKeyPress={handleEnter} />
+                <img
+                    src={logo}
+                    alt='Send message'
+                    width='24px'
+                    height='24px'
+                    onClick={this.sendMessage} />
             </div>
         )
     }

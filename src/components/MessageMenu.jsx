@@ -38,8 +38,6 @@ export default class MessageMenu extends Component {
             .then(res => this.checkError(res))
             .then(res => res.json())
             .then((result) => {
-                console.log(result)
-
                 this.setState({
                     profiles: result
                 });
