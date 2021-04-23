@@ -1,14 +1,30 @@
+import React, { Component } from 'react'
 import ContentBox from './ContentBox';
 import Header from './Header';
+import Login from './Login';
 
 // The website fragment with header and content
-function App() {
-  return (
-    <>
-      <Header />
-      <ContentBox />
-    </>
-  );
-}
+export default class App extends Component {
 
-export default App;
+  constructor(props) {
+    super(props);
+    this.state = { loggedIn: false };
+    this.flipLogin = this.flipLogin.bind(this);
+  }
+
+  render() {
+    return (
+      <>
+        <Header />
+        {!this.state.loggedIn && <Login flipLogin={this.flipLogin} />}
+        {this.state.loggedIn && <ContentBox />}
+      </>
+    );
+  }
+
+  flipLogin() {
+    this.setState({
+      loggedIn: true
+    });
+  }
+}
