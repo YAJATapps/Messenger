@@ -7,17 +7,31 @@ export default class Login extends Component {
         super(props);
         this.state = {
             username: '',
-            password: ''
+            password: '',
+            signUsername: '',
+            signPassword: ''
         };
 
         this.login = this.login.bind(this);
+        this.signup = this.signup.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
     }
 
 
     render() {
+
         return (
             <>
+                <div className='signup-sheet' onClick={() => this.signupSheet('none')}>
+                    <div className='signup-content' onClick={(e) => e.stopPropagation()}>
+                        <form>
+                            <input name='signUsername' type='text' placeholder='Username' value={this.state.signUsername} onChange={this.handleInputChange} /><br></br>
+                            <input name='signPassword' type='password' placeholder='Password' value={this.state.signPassword} onChange={this.handleInputChange} /><br></br><br></br>
+                            <button type='button' id='signup' className='button-blue' onClick={this.signup}>Signup</button><br></br><br></br>
+                        </form>
+                    </div>
+                </div>
+
                 <div className='left-container'>
                     <div className='left-content'>
                         <h2>Login to message with people on Messenger.</h2>
@@ -31,7 +45,7 @@ export default class Login extends Component {
                             <button type='button' id='login' className='button-blue' onClick={this.login}>Login</button><br></br><br></br>
                             <hr></hr>
                             <h5>Create a new account</h5>
-                            <button type='button' id='signup' className='button-blue'>Sign Up</button>
+                            <button type='button' id='signup' className='button-blue' onClick={() => this.signupSheet('block')}>Sign Up</button>
                         </form>
                     </div>
                 </div>
@@ -51,6 +65,31 @@ export default class Login extends Component {
                 else
                     alert('Wrong username or password!');
             })
+    }
+
+    signup() {
+        const user = this.state.signUsername;
+        const pass = this.state.signPassword;
+        let url = process.env.REACT_APP_API_URL + '/api/v1/users/add?user=' + user + '&pwd=' + pass;
+        fetch(url, { method: 'POST' })
+            .then(res => res.json())
+            .then((result) => {
+                if (result.includes('addedUser')) {
+                    alert('Signup successful!');
+                    this.signupSheet('none');
+                    this.setState({
+                        signUsername: '',
+                        signPassword: ''
+                    });
+                } else if (result.includes('alreadyExists'))
+                    alert('Username already exists!');
+                else
+                    alert('Invalid username or password!');
+            })
+    }
+
+    signupSheet(state) {
+        document.getElementsByClassName('signup-sheet')[0].style.display = state;
     }
 
     handleInputChange(event) {
