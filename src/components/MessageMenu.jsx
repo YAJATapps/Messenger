@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
 import './../css/MessageMenu.css';
 import MessageProfile from './MessageProfile';
+import SearchSheet from './SearchSheet';
 
 // The list of persons to message
 export default class MessageMenu extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { profiles: '' };
+        this.state = { profiles: '', searchOpen: false };
     }
 
     // Load profiles after the component mounts
@@ -24,6 +25,12 @@ export default class MessageMenu extends Component {
     render() {
         return (
             <div className='messageMenu'>
+                <div className='searchbox' onClick={() => this.setState({ searchOpen: true })}>
+                    <h4>Search profiles</h4>
+                </div>
+                {
+                    this.state.searchOpen && <SearchSheet hideSheet={() => this.setState({ searchOpen: false })} />
+                }
                 {Array.isArray(this.state.profiles) && this.state.profiles.map((value, index) => {
                     return <MessageProfile key={index} name={value.name} id={value.id} clickAt={this.props.clickAt} />
                 })}
