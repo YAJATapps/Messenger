@@ -9,6 +9,9 @@ export default class MessageMenu extends Component {
     constructor(props) {
         super(props);
         this.state = { profiles: '', searchOpen: false };
+
+        this.loadSearchedUser = this.loadSearchedUser.bind(this);
+
     }
 
     // Load profiles after the component mounts
@@ -29,7 +32,7 @@ export default class MessageMenu extends Component {
                     <h4>Search profiles</h4>
                 </div>
                 {
-                    this.state.searchOpen && <SearchSheet hideSheet={() => this.setState({ searchOpen: false })} />
+                    this.state.searchOpen && <SearchSheet hideSheet={() => this.setState({ searchOpen: false })} loadSearchedUser={this.loadSearchedUser} />
                 }
                 {Array.isArray(this.state.profiles) && this.state.profiles.map((value, index) => {
                     return <MessageProfile key={index} name={value.name} id={value.id} clickAt={this.props.clickAt} />
@@ -48,5 +51,27 @@ export default class MessageMenu extends Component {
                     profiles: result
                 });
             })
+    }
+
+    loadSearchedUser(sid, sName) {
+        this.setState({ searchOpen: false });
+
+        let exist = false;
+        if (Array.isArray(this.state.profiles)) {
+            for (let x in this.state.profiles) {
+                if (x.id === sid) {
+                    exist = true;
+                    break;
+                }
+            }
+        }
+
+        if (!exist) {
+            this.setState(prevState => ({
+                profiles: [...prevState.profiles, { 'id': sid, 'name': sName }]
+            }))
+        }
+
+        this.props.clickAt([sid, sName]);
     }
 }

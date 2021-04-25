@@ -6,7 +6,7 @@ export default class Profile extends Component {
 
     render() {
         return (
-            <div className='profile'>
+            <div className='profile' onClick={() => this.props.loadSearchedUser(this.props.id, this.props.name)}>
                 <h1>{this.props.name}</h1>
             </div>
         )

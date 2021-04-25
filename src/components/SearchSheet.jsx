@@ -7,6 +7,10 @@ export default class SearchSheet extends Component {
     constructor(props) {
         super(props)
         this.state = { profiles: '' };
+    }
+
+    // Load profiles after the component mounts
+    componentDidMount() {
         this.handleTextChange('');
     }
 
@@ -14,10 +18,10 @@ export default class SearchSheet extends Component {
         return (
             <div className='search-sheet' onClick={this.props.hideSheet}>
                 <div className='search-content' onClick={(e) => e.stopPropagation()}>
-                    <input name='search-text' type='text' placeholder='Search profiles ...' onChange={(e) => this.handleTextChange(e.target.value)} /> <br></br>
+                    <input name='search-text' type='text' placeholder='Search profiles...' onChange={(e) => this.handleTextChange(e.target.value)} /> <br></br>
 
                     {Array.isArray(this.state.profiles) && this.state.profiles.map((value, index) => {
-                        return <Profile key={index} name={value.name} id={value.id} />
+                        return <Profile key={index} name={value.name} id={value.id} loadSearchedUser={this.props.loadSearchedUser} />
                     })}
                 </div>
             </div>
