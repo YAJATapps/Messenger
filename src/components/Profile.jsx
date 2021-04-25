@@ -6,7 +6,7 @@ export default class Profile extends Component {
 
     render() {
         return (
-            <div className='profile' onClick={console.log(this.props.id)}>
+            <div className='profile'>
                 <h1>{this.props.name}</h1>
             </div>
         )

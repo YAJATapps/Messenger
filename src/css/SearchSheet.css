@@ -9,11 +9,13 @@
 
 .search-content {
     max-width: 540px;
+    max-height: 60vh;
     background-color: white;
     border-radius: 25px;
     border: 2px solid gray;
     padding: 24px;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 20vh;
+    margin-top: 15vh;
+    overflow-y: scroll;
 }
