@@ -26,30 +26,92 @@ export default class Login extends Component {
     render() {
         return (
             <>
-                <div className='signup-sheet' onClick={() => this.signupSheet('none')}>
-                    <div className='signup-content' onClick={(e) => e.stopPropagation()}>
+                <div
+                    className='signup-sheet'
+                    onClick={() =>
+                        this.signupSheet('none')
+                    }>
+
+                    <div
+                        className='signup-content'
+                        onClick={(e) =>
+                            e.stopPropagation()
+                        }>
+
                         <form>
-                            <input name='signUsername' type='text' placeholder='Username' value={this.state.signUsername} onChange={this.handleInputChange} /><br></br>
-                            <input name='signPassword' type='password' placeholder='Password' value={this.state.signPassword} onChange={this.handleInputChange} /><br></br><br></br>
-                            <button type='button' id='signup' className='button-blue' onClick={this.signup}>Signup</button><br></br><br></br>
+
+                            <input name='signUsername'
+                                type='text'
+                                placeholder='Username'
+                                value={this.state.signUsername}
+                                onChange={this.handleInputChange} />
+                            <br></br>
+
+                            <input
+                                name='signPassword'
+                                type='password'
+                                placeholder='Password'
+                                value={this.state.signPassword}
+                                onChange={this.handleInputChange} />
+                            <br></br><br></br>
+
+                            <button
+                                type='button'
+                                id='signup'
+                                className='button-blue'
+                                onClick={this.signup}>Signup</button>
+                            <br></br><br></br>
+
                         </form>
+
                     </div>
                 </div>
 
-                <div className='left-container'>
-                    <div className='left-content'>
+                <div
+                    className='left-container'>
+                    <div
+                        className='left-content'>
                         <h2>Login to message with people on Messenger.</h2>
                     </div>
                 </div>
-                <div className='right-container'>
-                    <div className='right-content'>
+                <div
+                    className='right-container'>
+                    <div
+                        className='right-content'>
                         <form>
-                            <input name='username' type='text' placeholder='Username' value={this.state.username} onChange={this.handleInputChange} /><br></br>
-                            <input name='password' type='password' placeholder='Password' value={this.state.password} onChange={this.handleInputChange} /><br></br><br></br>
-                            <button type='button' id='login' className='button-blue' onClick={this.login}>Login</button><br></br><br></br>
+                            <input
+                                name='username'
+                                type='text'
+                                placeholder='Username'
+                                value={this.state.username}
+                                onChange={this.handleInputChange} />
+                            <br></br>
+
+                            <input
+                                name='password'
+                                type='password'
+                                placeholder='Password'
+                                value={this.state.password}
+                                onChange={this.handleInputChange} />
+                            <br></br><br></br>
+
+                            <button
+                                type='button'
+                                id='login'
+                                className='button-blue'
+                                onClick={this.login}>Login</button>
+                            <br></br><br></br>
                             <hr></hr>
+
                             <h5>Create a new account</h5>
-                            <button type='button' id='signup' className='button-blue' onClick={() => this.signupSheet('block')}>Sign Up</button>
+
+                            <button
+                                type='button'
+                                id='signup'
+                                className='button-blue'
+                                onClick={() =>
+                                    this.signupSheet('block')
+                                }>Sign Up</button>
                         </form>
                     </div>
                 </div>

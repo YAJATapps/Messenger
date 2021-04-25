@@ -7,10 +7,16 @@ export default class MessageProfile extends Component {
     // Render this component
     render() {
         return (
-            <div className='messageProfile' onClick={() => this.props.selectProfile([this.props.id, this.props.name])}>
-                <h1>{this.props.name}</h1>
+            <div
+                className='messageProfile'
+                onClick={() =>
+                    this.props.selectProfile([this.props.id, this.props.name])
+                }>
+                <h1>
+                    {this.props.name}
+                </h1>
             </div>
         )
     }
-    
+
 }

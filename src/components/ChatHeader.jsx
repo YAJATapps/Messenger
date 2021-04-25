@@ -7,10 +7,13 @@ export default class ChatHeader extends Component {
     // Render this component
     render() {
         return (
-            <div className='chatHeader'>
-                <h1>{this.props.selectedName}</h1>
+            <div
+                className='chatHeader'>
+                <h1>
+                    {this.props.selectedName}
+                </h1>
             </div>
         )
     }
-    
+
 }

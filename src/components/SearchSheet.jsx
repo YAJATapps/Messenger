@@ -23,12 +23,29 @@ export default class SearchSheet extends Component {
     // Render this component
     render() {
         return (
-            <div className='search-sheet' onClick={this.props.hideSheet}>
-                <div className='search-content' onClick={(e) => e.stopPropagation()}>
-                    <input name='search-text' type='text' placeholder='Search profiles...' onChange={(e) => this.handleTextChange(e.target.value)} /> <br></br>
+            <div
+                className='search-sheet'
+                onClick={this.props.hideSheet}>
+                <div
+                    className='search-content'
+                    onClick={(e) =>
+                        e.stopPropagation()
+                    }>
+                    <input
+                        name='search-text'
+                        type='text'
+                        placeholder='Search profiles...'
+                        onChange={(e) => this.handleTextChange(e.target.value)}
+                    />
+                    <br></br>
 
                     {Array.isArray(this.state.profiles) && this.state.profiles.map((value, index) => {
-                        return <Profile key={index} name={value.name} id={value.id} loadSearchedUser={this.props.loadSearchedUser} />
+                        return <Profile
+                            key={index}
+                            name={value.name}
+                            id={value.id}
+                            loadSearchedUser={this.props.loadSearchedUser}
+                        />
                     })}
                 </div>
             </div>

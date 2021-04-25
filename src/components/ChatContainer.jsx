@@ -31,9 +31,14 @@ export default class ChatContainer extends Component {
     // Render this component
     render() {
         return (
-            <div className='chatsContainer'>
+            <div
+                className='chatsContainer'>
                 {Array.isArray(this.state.messages) && this.state.messages.map((value, index) => {
-                    return <ChatMessage key={index} message={value.msg} sent={value.sent} />
+                    return <ChatMessage
+                        key={index}
+                        message={value.msg}
+                        sent={value.sent}
+                    />
                 })}
             </div>
         )

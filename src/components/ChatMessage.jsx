@@ -17,8 +17,13 @@ export default class ChatMessage extends Component {
             boxAlign.textAlign = 'right';
         }
         return (
-            <div className='chatMessage' style={boxColor}>
-                <h3 style={boxAlign}>{this.props.message}</h3>
+            <div
+                className='chatMessage'
+                style={boxColor}>
+                <h3
+                    style={boxAlign}>
+                    {this.props.message}
+                </h3>
             </div>
         )
     }

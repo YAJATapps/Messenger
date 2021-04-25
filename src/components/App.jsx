@@ -24,8 +24,14 @@ export default class App extends Component {
     return (
       <>
         <Header />
-        {!this.state.loggedIn && <Login flipLogin={this.flipLogin} />}
-        {this.state.loggedIn && <ContentBox uid={this.state.uid} />}
+        {!this.state.loggedIn &&
+          <Login
+            flipLogin={this.flipLogin}
+          />}
+        {this.state.loggedIn &&
+          <ContentBox
+            uid={this.state.uid}
+          />}
       </>
     );
   }

@@ -8,9 +8,15 @@ export default class Header extends Component {
     // Render this component
     render() {
         return (
-            <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
-                <h1>Messenger</h1>
+            <header
+                className="App-header">
+                <img
+                    src={logo}
+                    className="App-logo"
+                    alt="logo" />
+                <h1>
+                    Messenger
+                    </h1>
             </header>
         )
     }

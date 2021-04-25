@@ -34,15 +34,33 @@ export default class MessageMenu extends Component {
     // Render this component
     render() {
         return (
-            <div className='messageMenu'>
-                <div className='searchbox' onClick={() => this.setState({ searchOpen: true })}>
-                    <h4>Search profiles</h4>
+            <div
+                className='messageMenu'>
+                <div
+                    className='searchbox'
+                    onClick={() =>
+                        this.setState({ searchOpen: true })
+                    }>
+                    <h4>
+                        Search profiles
+                        </h4>
                 </div>
                 {
-                    this.state.searchOpen && <SearchSheet hideSheet={() => this.setState({ searchOpen: false })} loadSearchedUser={this.loadSearchedUser} />
+                    this.state.searchOpen &&
+                    <SearchSheet
+                        hideSheet={() =>
+                            this.setState({ searchOpen: false })
+                        }
+                        loadSearchedUser={this.loadSearchedUser}
+                    />
                 }
                 {Array.isArray(this.state.profiles) && this.state.profiles.map((value, index) => {
-                    return <MessageProfile key={index} name={value.name} id={value.id} selectProfile={this.props.selectProfile} />
+                    return <MessageProfile
+                        key={index}
+                        name={value.name}
+                        id={value.id}
+                        selectProfile={this.props.selectProfile}
+                    />
                 })}
             </div>
         )

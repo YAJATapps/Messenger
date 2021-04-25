@@ -27,19 +27,23 @@ export default class ChatInput extends Component {
             }
         };
         return (
-            <div className='chatInput'>
-                <input name='chatIn'
+            <div
+                className='chatInput'>
+                <input
+                    name='chatIn'
                     type='text'
                     placeholder='Write a message'
                     value={this.state.message}
                     onChange={this.handleMsgChange}
-                    onKeyPress={handleEnter} />
+                    onKeyPress={handleEnter}
+                />
                 <img
                     src={logo}
                     alt='Send message'
                     width='24px'
                     height='24px'
-                    onClick={this.sendMessage} />
+                    onClick={this.sendMessage}
+                />
             </div>
         )
     }

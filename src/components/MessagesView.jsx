@@ -32,11 +32,21 @@ export default class MessagesView extends Component {
 
         return (
             <div className='messagesView'>
-                <ChatHeader selectedName={this.props.selectedName} />
+                <ChatHeader
+                    selectedName={this.props.selectedName}
+                />
 
-                <ChatContainer uid={this.props.uid} selectedId={this.props.selectedId} counter={this.state.counter} />
+                <ChatContainer
+                    uid={this.props.uid}
+                    selectedId={this.props.selectedId}
+                    counter={this.state.counter}
+                />
 
-                <ChatInput uid={this.props.uid} tid={this.props.selectedId} incrementCounter={this.incrementCounter} />
+                <ChatInput
+                    uid={this.props.uid}
+                    tid={this.props.selectedId}
+                    incrementCounter={this.incrementCounter}
+                />
             </div>
         )
     }
