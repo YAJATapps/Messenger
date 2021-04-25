@@ -5,12 +5,21 @@ import MessagesView from './MessagesView';
 
 // The box that contains the message menu which is a list of persons and the message views that shows messages
 export default class ContentBox extends Component {
+
     constructor(props) {
         super(props);
+
+        // Bind the method
         this.selectProfile = this.selectProfile.bind(this);
-        this.state = { selectedId: '', selectedName: '' };
+
+        // The selectedId contains the id of selected user, selectedName contains name of selected user
+        this.state = {
+            selectedId: '',
+            selectedName: ''
+        };
     }
 
+    // Render this component
     render() {
         return (
             <div className='contentBox'>
@@ -20,7 +29,9 @@ export default class ContentBox extends Component {
         )
     }
 
+    // Set the id and name to selected profile
     selectProfile(e) {
         this.setState({ selectedId: e[0], selectedName: e[1] });
     }
+
 }

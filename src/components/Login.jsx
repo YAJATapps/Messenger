@@ -1,10 +1,14 @@
 import React, { Component } from 'react'
 import './../css/Login.css';
 
+// The login page
 export default class Login extends Component {
 
     constructor(props) {
         super(props);
+
+        // The state of username and password contains these for the login
+        // The state of signUsername and signPassword contains these for the signup
         this.state = {
             username: '',
             password: '',
@@ -12,14 +16,14 @@ export default class Login extends Component {
             signPassword: ''
         };
 
+        // Bind the methods
         this.login = this.login.bind(this);
         this.signup = this.signup.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
     }
 
-
+    // Render this component
     render() {
-
         return (
             <>
                 <div className='signup-sheet' onClick={() => this.signupSheet('none')}>
@@ -53,45 +57,63 @@ export default class Login extends Component {
         )
     }
 
+    // Handle login button click
     login() {
+        // The username for login
         const user = this.state.username;
+
+        // The password for login
         const pass = this.state.password;
+
+        // Url to send the login info
         let url = process.env.REACT_APP_API_URL + '/api/v1/users/login?user=' + user + '&pwd=' + pass;
+
+        // Send the login info to url with post
         fetch(url, { method: 'POST' })
             .then(res => res.json())
             .then((result) => {
                 if (result)
-                    this.props.flipLogin(user);
+                    this.props.flipLogin(user); // Login successful
                 else
-                    alert('Wrong username or password!');
-            })
+                    alert('Wrong username or password!'); // Login failed
+            });
     }
 
+    // Handle signup button click
     signup() {
+        // The username for signup
         const user = this.state.signUsername;
+
+        // The password for signup
         const pass = this.state.signPassword;
+
+        // Url to send the signup info
         let url = process.env.REACT_APP_API_URL + '/api/v1/users/add?user=' + user + '&pwd=' + pass;
+
+        // Send the signup info to url with post
         fetch(url, { method: 'POST' })
             .then(res => res.json())
             .then((result) => {
-                if (result.includes('addedUser')) {
+                if (result.includes('addedUser')) { // Successful signup
                     alert('Signup successful!');
                     this.signupSheet('none');
                     this.setState({
                         signUsername: '',
                         signPassword: ''
                     });
-                } else if (result.includes('alreadyExists'))
+                } else if (result.includes('alreadyExists')) // User already exists
                     alert('Username already exists!');
-                else
+                else // Other error in signup
                     alert('Invalid username or password!');
-            })
+            });
     }
 
+    // Set the display of signup sheet
     signupSheet(state) {
         document.getElementsByClassName('signup-sheet')[0].style.display = state;
     }
 
+    // Handle input change
     handleInputChange(event) {
         const target = event.target;
         const value = target.value;
@@ -101,4 +123,5 @@ export default class Login extends Component {
             [name]: value
         });
     }
+
 }

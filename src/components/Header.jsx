@@ -4,6 +4,8 @@ import './../css/Header.css';
 
 // The header with icon and text
 export default class Header extends Component {
+
+    // Render this component
     render() {
         return (
             <header className="App-header">
@@ -12,4 +14,5 @@ export default class Header extends Component {
             </header>
         )
     }
+
 }

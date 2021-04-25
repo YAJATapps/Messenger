@@ -2,18 +2,25 @@ import React, { Component } from 'react'
 import './../css/SearchSheet.css'
 import Profile from './Profile';
 
+// The search sheet that show the username of the users searched with the search box
 export default class SearchSheet extends Component {
 
     constructor(props) {
         super(props)
-        this.state = { profiles: '' };
+
+        // The profiles states contains the object with name and id of users in search list
+        this.state = {
+            profiles: ''
+        };
     }
 
     // Load profiles after the component mounts
     componentDidMount() {
+        // Show all the users when component is mounted
         this.handleTextChange('');
     }
 
+    // Render this component
     render() {
         return (
             <div className='search-sheet' onClick={this.props.hideSheet}>
@@ -28,14 +35,20 @@ export default class SearchSheet extends Component {
         )
     }
 
+    // Handle text changes in search box
     handleTextChange(text) {
+        // Url to get the list of names that contain text
         let url = process.env.REACT_APP_API_URL + '/api/v1/users/find?user=' + text;
+
+        // Fetch the url with post
         fetch(url, { method: 'POST' })
             .then(res => res.json())
             .then((result) => {
+                // Set the result to profiles state
                 this.setState({
                     profiles: result
                 });
-            })
+            });
     }
+
 }

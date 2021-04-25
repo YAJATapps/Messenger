@@ -9,14 +9,18 @@ export default class MessagesView extends Component {
 
     constructor(props) {
         super(props);
+
+        // The counter state is a number that is used only for updates
         this.state = {
             // Used for updating messages
             counter: 0
         };
 
+        // Bind the method
         this.incrementCounter = this.incrementCounter.bind(this);
     }
 
+    // Render this component
     render() {
         if (this.props.selectedId === '') {
             return (
@@ -37,9 +41,11 @@ export default class MessagesView extends Component {
         )
     }
 
+    // Increase the counter to update the messages
     incrementCounter() {
         this.setState({
             counter: this.state.counter + 1
         });
     }
+
 }

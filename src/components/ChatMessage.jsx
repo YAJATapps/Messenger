@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import './../css/ChatMessage.css';
 
-// This represents a message
+// This represents a message. Align it to left and color grey when its received, Align it to right and color blue when its sent
 export default class ChatMessage extends Component {
+
+    // Render this component
     render() {
         let boxColor = {
             backgroundColor: this.props.sent ? '#61dafb' : 'grey'
@@ -20,4 +22,5 @@ export default class ChatMessage extends Component {
             </div>
         )
     }
+
 }
