@@ -42,20 +42,11 @@ export default class MessageMenu extends Component {
     loadProfiles() {
         let url = process.env.REACT_APP_API_URL + '/api/v1/users/contacts?user=' + this.props.uid;
         fetch(url, { method: 'POST' })
-            .then(res => this.checkError(res))
             .then(res => res.json())
             .then((result) => {
                 this.setState({
                     profiles: result
                 });
             })
-            .catch(error => console.log(error));
-    }
-
-    checkError(response) {
-        if (!response.ok) {
-            throw Error(response.statusText);
-        }
-        return response;
     }
 }
