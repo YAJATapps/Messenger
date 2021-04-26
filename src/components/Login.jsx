@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './../css/Login.css';
+import SignupSheet from './SignupSheet';
 
 // The login page
 export default class Login extends Component {
@@ -8,17 +9,15 @@ export default class Login extends Component {
         super(props);
 
         // The state of username and password contains these for the login
-        // The state of signUsername and signPassword contains these for the signup
+        // searchOpen is bool whether signup sheet is open
         this.state = {
             username: '',
             password: '',
-            signUsername: '',
-            signPassword: ''
+            searchOpen: false
         };
 
         // Bind the methods
         this.login = this.login.bind(this);
-        this.signup = this.signup.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
     }
 
@@ -26,46 +25,14 @@ export default class Login extends Component {
     render() {
         return (
             <>
-                <div
-                    className='signup-sheet'
-                    onClick={() =>
-                        this.signupSheet('none')
-                    }>
-
-                    <div
-                        className='signup-content'
-                        onClick={(e) =>
-                            e.stopPropagation()
-                        }>
-
-                        <form>
-
-                            <input name='signUsername'
-                                type='text'
-                                placeholder='Username'
-                                value={this.state.signUsername}
-                                onChange={this.handleInputChange} />
-                            <br></br>
-
-                            <input
-                                name='signPassword'
-                                type='password'
-                                placeholder='Password'
-                                value={this.state.signPassword}
-                                onChange={this.handleInputChange} />
-                            <br></br><br></br>
-
-                            <button
-                                type='button'
-                                id='signup'
-                                className='button-blue'
-                                onClick={this.signup}>Signup</button>
-                            <br></br><br></br>
-
-                        </form>
-
-                    </div>
-                </div>
+                {
+                    this.state.searchOpen &&
+                    <SignupSheet
+                        hideSheet={() =>
+                            this.setState({ searchOpen: false })
+                        }
+                    />
+                }
 
                 <div
                     className='left-container'>
@@ -110,8 +77,9 @@ export default class Login extends Component {
                                 id='signup'
                                 className='button-blue'
                                 onClick={() =>
-                                    this.signupSheet('block')
-                                }>Sign Up</button>
+                                    this.setState({ searchOpen: true })
+                                }
+                            >Sign Up</button>
                         </form>
                     </div>
                 </div>
@@ -139,40 +107,6 @@ export default class Login extends Component {
                 else
                     alert('Wrong username or password!'); // Login failed
             });
-    }
-
-    // Handle signup button click
-    signup() {
-        // The username for signup
-        const user = this.state.signUsername;
-
-        // The password for signup
-        const pass = this.state.signPassword;
-
-        // Url to send the signup info
-        let url = process.env.REACT_APP_API_URL + '/api/v1/users/add?user=' + user + '&pwd=' + pass;
-
-        // Send the signup info to url with post
-        fetch(url, { method: 'POST' })
-            .then(res => res.json())
-            .then((result) => {
-                if (result.includes('addedUser')) { // Successful signup
-                    alert('Signup successful!');
-                    this.signupSheet('none');
-                    this.setState({
-                        signUsername: '',
-                        signPassword: ''
-                    });
-                } else if (result.includes('alreadyExists')) // User already exists
-                    alert('Username already exists!');
-                else // Other error in signup
-                    alert('Invalid username or password!');
-            });
-    }
-
-    // Set the display of signup sheet
-    signupSheet(state) {
-        document.getElementsByClassName('signup-sheet')[0].style.display = state;
     }
 
     // Handle input change
