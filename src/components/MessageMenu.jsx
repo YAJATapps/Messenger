@@ -52,6 +52,7 @@ export default class MessageMenu extends Component {
                             this.setState({ searchOpen: false })
                         }
                         loadSearchedUser={this.loadSearchedUser}
+                        uid={this.props.uid}
                     />
                 }
                 {Array.isArray(this.state.profiles) && this.state.profiles.map((value, index) => {

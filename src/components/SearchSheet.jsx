@@ -61,9 +61,19 @@ export default class SearchSheet extends Component {
         fetch(url, { method: 'POST' })
             .then(res => res.json())
             .then((result) => {
+                // Filtered results
+                let results = []
+
+                // Do not include current signed in user in search results
+                result.forEach((profile) => {
+                    if (this.props.uid !== profile.id) {
+                        results.push(profile);
+                    }
+                });
+
                 // Set the result to profiles state
                 this.setState({
-                    profiles: result
+                    profiles: results
                 });
             });
     }
