@@ -89,12 +89,13 @@ export default class MessageMenu extends Component {
         // Check if user is already in list
         let exist = false;
         if (Array.isArray(this.state.profiles)) {
-            for (let x in this.state.profiles) {
-                if (x.id === sid) {
-                    exist = true;
-                    break;
+            this.state.profiles.forEach((profile) => {
+                if (!exist) {
+                    if (profile.id === sid) {
+                        exist = true;
+                    }
                 }
-            }
+            });
         }
 
         // Add user to profiles list if it does not exists there already

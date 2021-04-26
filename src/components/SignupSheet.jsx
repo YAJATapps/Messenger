@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './../css/SignupSheet.css'
 
+// The signup sheet
 export default class SignupSheet extends Component {
 
     constructor(props) {
@@ -80,11 +81,7 @@ export default class SignupSheet extends Component {
             .then((result) => {
                 if (result.includes('addedUser')) { // Successful signup
                     alert('Signup successful!');
-                    this.props.hideSheet()
-                    this.setState({
-                        signUsername: '',
-                        signPassword: ''
-                    });
+                    this.props.hideSheet();
                 } else if (result.includes('alreadyExists')) // User already exists
                     alert('Username already exists!');
                 else // Other error in signup
