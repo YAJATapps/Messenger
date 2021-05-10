@@ -53,3 +53,15 @@ h2,
 h5 {
     text-align: center;
 }
+
+@media only screen and (max-width: 800px) {
+    .left-container {
+        display: none;
+    }
+    .right-container {
+        left: calc((100vw - 340px)/2);
+    }
+    .right-content {
+        margin-top: 10vh;
+    }
+}
