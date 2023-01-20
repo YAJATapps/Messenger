@@ -21,12 +21,12 @@ You will also see any lint errors in the console.
 You need to set the REACT_APP_API_URL environment variable to the API's url to use the backend.  
 
 
-![alt text](https://github.com/YAJATapps/Messenger/raw/main/screenshots/1.png)  
+![alt text](screenshots/1.png)  
 
-![alt text](https://github.com/YAJATapps/Messenger/raw/main/screenshots/2.png)  
+![alt text](screenshots/2.png)  
 
-![alt text](https://github.com/YAJATapps/Messenger/raw/main/screenshots/3.png)  
+![alt text](screenshots/3.png)  
 
-![alt text](https://github.com/YAJATapps/Messenger/raw/main/screenshots/4.png)  
+![alt text](screenshots/4.png)  
 
-![alt text](https://github.com/YAJATapps/Messenger/raw/main/screenshots/5.png)  
+![alt text](screenshots/5.png)  
